@@ -8,6 +8,7 @@ from sklearn.externals import joblib
 
 ## TODO: Import any additional libraries you need to define a model
 
+from sklearn.svm import LinearSVC
 
 # Provided model load function
 def model_fn(model_dir):
@@ -40,6 +41,7 @@ if __name__ == '__main__':
     
     ## TODO: Add any additional arguments that you will need to pass into your model
     
+                        
     # args holds all passed-in arguments
     args = parser.parse_args()
 
@@ -54,12 +56,10 @@ if __name__ == '__main__':
     
     ## --- Your code here --- ##
     
-    parser.add_argument('--n_estimators', type=int, default=50)
-    parser.add_argument('--max_depth', type=int, default=5)
+  
 
     ## TODO: Define a model 
-    model = RandomForestClassifier(n_estimators=args.n_estimators, max_depth=args.max_depth,
-                          random_state=0)
+    model = LinearSVC()
     
     
     ## TODO: Train the model
@@ -67,8 +67,9 @@ if __name__ == '__main__':
     
     # Save the trained model
     joblib.dump(model, os.path.join(args.model_dir, "model.joblib"))
-    ## --- End of your code  --- ##
     
-
-    # Save the trained model
-    joblib.dump(model, os.path.join(args.model_dir, "model.joblib"))
+    
+    ## --- End of your code  --- ##
+                        
+                        
+   
